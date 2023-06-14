@@ -724,7 +724,23 @@
             "y": 283.5,
             "actors": [],
             "triggers": [],
-            "script": [],
+            "script": [
+                {
+                    "command": "EVENT_CALL_CUSTOM_EVENT",
+                    "args": {
+                        "customEventId": "15f7b993-6545-4120-b7b7-3c62d721a4fa",
+                        "$variable[V0]$": {
+                            "type": "variable",
+                            "value": "0"
+                        },
+                        "$variable[V1]$": {
+                            "type": "variable",
+                            "value": "1"
+                        }
+                    },
+                    "id": "61bffb1d-98b9-441a-8395-37dfdd7ef029"
+                }
+            ],
             "playerHit1Script": [],
             "playerHit2Script": [],
             "playerHit3Script": [],
@@ -3262,7 +3278,304 @@
             ]
         }
     ],
-    "customEvents": [],
+    "customEvents": [
+        {
+            "id": "15f7b993-6545-4120-b7b7-3c62d721a4fa",
+            "name": "menu",
+            "description": "",
+            "variables": {
+                "V0": {
+                    "id": "V0",
+                    "name": "Variable A",
+                    "passByReference": true
+                },
+                "V1": {
+                    "id": "V1",
+                    "name": "Variable B",
+                    "passByReference": true
+                }
+            },
+            "actors": {},
+            "symbol": "script_1",
+            "script": [
+                {
+                    "command": "EVENT_SET_INPUT_SCRIPT",
+                    "args": {
+                        "input": [
+                            "start"
+                        ],
+                        "override": true,
+                        "__scriptTabs": "press",
+                        "__collapse": false
+                    },
+                    "children": {
+                        "true": [
+                            {
+                                "command": "EVENT_MENU",
+                                "args": {
+                                    "variable": "V0",
+                                    "items": 5,
+                                    "option1": "Resume",
+                                    "option2": "Weapons",
+                                    "option3": "Options",
+                                    "option4": "Save",
+                                    "option5": "Quit",
+                                    "option6": "",
+                                    "option7": "",
+                                    "option8": "",
+                                    "cancelOnB": true,
+                                    "layout": "menu"
+                                },
+                                "id": "2ba15efd-a1bc-4961-84e4-18109dd05b9a"
+                            },
+                            {
+                                "command": "EVENT_IF_VALUE",
+                                "args": {
+                                    "variable": "V0",
+                                    "operator": "==",
+                                    "comparator": 1,
+                                    "__collapseElse": false,
+                                    "__collapse": false
+                                },
+                                "children": {
+                                    "true": [],
+                                    "false": [
+                                        {
+                                            "command": "EVENT_IF_VALUE",
+                                            "args": {
+                                                "variable": "V0",
+                                                "operator": "==",
+                                                "comparator": 2,
+                                                "__collapseElse": false
+                                            },
+                                            "children": {
+                                                "true": [
+                                                    {
+                                                        "command": "EVENT_TEXT",
+                                                        "args": {
+                                                            "text": [
+                                                                "add invintory soon"
+                                                            ],
+                                                            "avatarId": ""
+                                                        },
+                                                        "id": "6395c3e9-95dd-475c-8db5-466099654635"
+                                                    }
+                                                ],
+                                                "false": [
+                                                    {
+                                                        "command": "EVENT_IF_VALUE",
+                                                        "args": {
+                                                            "variable": "V0",
+                                                            "operator": "==",
+                                                            "comparator": 3,
+                                                            "__collapseElse": false
+                                                        },
+                                                        "children": {
+                                                            "true": [
+                                                                {
+                                                                    "command": "EVENT_TEXT",
+                                                                    "args": {
+                                                                        "text": [
+                                                                            "add options later"
+                                                                        ],
+                                                                        "avatarId": ""
+                                                                    },
+                                                                    "id": "aff2cea1-086a-4f89-b961-33877867c9bb"
+                                                                }
+                                                            ],
+                                                            "false": [
+                                                                {
+                                                                    "command": "EVENT_IF_VALUE",
+                                                                    "args": {
+                                                                        "variable": "V0",
+                                                                        "operator": "==",
+                                                                        "comparator": 4,
+                                                                        "__collapseElse": false
+                                                                    },
+                                                                    "children": {
+                                                                        "true": [
+                                                                            {
+                                                                                "command": "EVENT_MENU",
+                                                                                "args": {
+                                                                                    "variable": "V1",
+                                                                                    "items": 3,
+                                                                                    "option1": "Slot 1",
+                                                                                    "option2": "Slot 2",
+                                                                                    "option3": "Slot 3",
+                                                                                    "option4": "",
+                                                                                    "option5": "",
+                                                                                    "option6": "",
+                                                                                    "option7": "",
+                                                                                    "option8": "",
+                                                                                    "cancelOnB": true,
+                                                                                    "layout": "menu"
+                                                                                },
+                                                                                "id": "c55bde38-ea05-4668-b0d8-d7ddc330fdd2"
+                                                                            },
+                                                                            {
+                                                                                "command": "EVENT_IF_VALUE",
+                                                                                "args": {
+                                                                                    "variable": "V1",
+                                                                                    "operator": "==",
+                                                                                    "comparator": 1,
+                                                                                    "__collapseElse": false
+                                                                                },
+                                                                                "children": {
+                                                                                    "true": [
+                                                                                        {
+                                                                                            "command": "EVENT_SAVE_DATA",
+                                                                                            "args": {
+                                                                                                "saveSlot": 0,
+                                                                                                "__scriptTabs": "save"
+                                                                                            },
+                                                                                            "children": {
+                                                                                                "true": [
+                                                                                                    {
+                                                                                                        "command": "EVENT_TEXT",
+                                                                                                        "args": {
+                                                                                                            "text": [
+                                                                                                                "Saved!"
+                                                                                                            ],
+                                                                                                            "avatarId": ""
+                                                                                                        },
+                                                                                                        "id": "c350c74b-f59e-445e-bd99-87cb13f3837f"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            "id": "75e72169-631c-477e-82db-caf13ab73a8b"
+                                                                                        }
+                                                                                    ],
+                                                                                    "false": [
+                                                                                        {
+                                                                                            "command": "EVENT_IF_VALUE",
+                                                                                            "args": {
+                                                                                                "variable": "V1",
+                                                                                                "operator": "==",
+                                                                                                "comparator": 2,
+                                                                                                "__collapseElse": false
+                                                                                            },
+                                                                                            "children": {
+                                                                                                "true": [
+                                                                                                    {
+                                                                                                        "command": "EVENT_SAVE_DATA",
+                                                                                                        "args": {
+                                                                                                            "saveSlot": 1,
+                                                                                                            "__scriptTabs": "save"
+                                                                                                        },
+                                                                                                        "children": {
+                                                                                                            "true": [
+                                                                                                                {
+                                                                                                                    "command": "EVENT_TEXT",
+                                                                                                                    "args": {
+                                                                                                                        "text": [
+                                                                                                                            "Saved!"
+                                                                                                                        ],
+                                                                                                                        "avatarId": ""
+                                                                                                                    },
+                                                                                                                    "id": "5ec2440d-52f8-41b6-b631-5fa52dd03f0f"
+                                                                                                                }
+                                                                                                            ]
+                                                                                                        },
+                                                                                                        "id": "99b12eef-8604-4064-a824-40bb7e5d17f8"
+                                                                                                    }
+                                                                                                ],
+                                                                                                "false": [
+                                                                                                    {
+                                                                                                        "command": "EVENT_IF_VALUE",
+                                                                                                        "args": {
+                                                                                                            "variable": "V1",
+                                                                                                            "operator": "==",
+                                                                                                            "comparator": 3,
+                                                                                                            "__collapseElse": true
+                                                                                                        },
+                                                                                                        "children": {
+                                                                                                            "true": [
+                                                                                                                {
+                                                                                                                    "command": "EVENT_SAVE_DATA",
+                                                                                                                    "args": {
+                                                                                                                        "saveSlot": 2,
+                                                                                                                        "__scriptTabs": "save"
+                                                                                                                    },
+                                                                                                                    "children": {
+                                                                                                                        "true": [
+                                                                                                                            {
+                                                                                                                                "command": "EVENT_TEXT",
+                                                                                                                                "args": {
+                                                                                                                                    "text": [
+                                                                                                                                        "Saved!"
+                                                                                                                                    ],
+                                                                                                                                    "avatarId": ""
+                                                                                                                                },
+                                                                                                                                "id": "ba8f2847-8daa-44c8-9a21-5313f9afa847"
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    },
+                                                                                                                    "id": "b17f56e5-d399-457a-a0cb-e0de5afc87e5"
+                                                                                                                }
+                                                                                                            ],
+                                                                                                            "false": []
+                                                                                                        },
+                                                                                                        "id": "28e1b170-816e-4393-b73e-f860cbccf99e"
+                                                                                                    }
+                                                                                                ]
+                                                                                            },
+                                                                                            "id": "c4172592-5d18-4dc1-ad38-847bed4771bf"
+                                                                                        }
+                                                                                    ]
+                                                                                },
+                                                                                "id": "95e01361-5eb2-428d-99ef-30485500afb6"
+                                                                            }
+                                                                        ],
+                                                                        "false": [
+                                                                            {
+                                                                                "command": "EVENT_IF_VALUE",
+                                                                                "args": {
+                                                                                    "variable": "V0",
+                                                                                    "operator": "==",
+                                                                                    "comparator": 5,
+                                                                                    "__collapseElse": true
+                                                                                },
+                                                                                "children": {
+                                                                                    "true": [
+                                                                                        {
+                                                                                            "command": "EVENT_SWITCH_SCENE",
+                                                                                            "args": {
+                                                                                                "sceneId": "6641e6ab-a5d2-4261-9262-3b649bc0b3ad",
+                                                                                                "x": 0,
+                                                                                                "y": 0,
+                                                                                                "direction": "",
+                                                                                                "fadeSpeed": 1
+                                                                                            },
+                                                                                            "id": "02252124-f468-4c76-8726-35736f50cfb4"
+                                                                                        }
+                                                                                    ],
+                                                                                    "false": []
+                                                                                },
+                                                                                "id": "26a8e11d-69c0-4d4c-bdab-65fc986bacdb"
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    "id": "eeb731c4-e433-43a5-9341-c07e4bb3cdfc"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "id": "1428fa5b-8d1b-4ecf-a7ce-be364f76c946"
+                                                    }
+                                                ]
+                                            },
+                                            "id": "9be59912-23fa-41bb-9d64-7cbbcdd333e8"
+                                        }
+                                    ]
+                                },
+                                "id": "762447b7-97e3-4f0c-a8c1-87b839138d65"
+                            }
+                        ]
+                    },
+                    "id": "b4e1b5b7-0143-4cf8-a744-1043314cd587"
+                }
+            ]
+        }
+    ],
     "music": [
         {
             "id": "750f0638-5e18-431a-ba4a-5f333b8065a8",
@@ -3400,6 +3713,16 @@
             "id": "6641e6ab-a5d2-4261-9262-3b649bc0b3ad__L0",
             "name": "Local 0",
             "symbol": "var_local_0"
+        },
+        {
+            "id": "0",
+            "name": "menu 1",
+            "symbol": "var_menu_1"
+        },
+        {
+            "id": "1",
+            "name": "menu 2",
+            "symbol": "var_menu_2"
         }
     ],
     "engineFieldValues": [
@@ -3417,8 +3740,8 @@
         "startDirection": "down",
         "showCollisions": true,
         "showConnections": true,
-        "worldScrollX": 136,
-        "worldScrollY": 43,
+        "worldScrollX": 40,
+        "worldScrollY": 48,
         "zoom": 200,
         "customColorsEnabled": true,
         "sgbEnabled": false,
@@ -3447,9 +3770,9 @@
         "defaultUIPaletteId": "default-ui",
         "playerPaletteId": "",
         "navigatorSplitSizes": [
-            588,
-            170,
-            170
+            419,
+            205,
+            312
         ],
         "showNavigator": true,
         "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
