@@ -1,0 +1,145 @@
+{
+  "_resourceType": "actor",
+  "id": "1634e168-3461-4d8b-87f8-004c53f65e12",
+  "_index": 1,
+  "symbol": "actor_306",
+  "prefabId": "",
+  "name": "",
+  "x": 10,
+  "y": 15,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "8a2c1156-091b-4061-9298-e309c3de45f6",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "",
+  "prefabScriptOverrides": {},
+  "script": [
+    {
+      "command": "EVENT_IF_VALUE",
+      "args": {
+        "variable": "L0",
+        "operator": "==",
+        "comparator": "0",
+        "__collapseElse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_GBVM_SCRIPT",
+            "args": {
+              "script": "VM_OVERLAY_CLEAR 0, 17, 19, 17, .UI_DRAW_FRAME, .UI_COLOR_WHITE\nVM_OVERLAY_MOVE_TO      0, 18, .OVERLAY_OUT_SPEED\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_TEXT\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_WINDOW"
+            },
+            "id": "acde1b0e-9561-45c1-9a21-233cf79795a2"
+          },
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "Whats this? It has\nan image of an \nexplosion on it...",
+                "Wanna pull it???\n....\nyeah lest pull it!"
+              ],
+              "avatarId": ""
+            },
+            "id": "397fb120-b4f6-4ecb-9ec9-b14926d3ff6b"
+          },
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "$self$",
+              "spriteStateId": "fliped",
+              "loopAnim": true
+            },
+            "id": "71ded8e9-0eaa-4c17-9064-7d8e88412113"
+          },
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "131",
+              "value": {
+                "type": "number",
+                "value": 1
+              }
+            },
+            "id": "be6f025d-982d-4d4f-97be-f7aa6b73cc95"
+          },
+          {
+            "command": "EVENT_WAIT",
+            "args": {
+              "time": 2,
+              "frames": 30
+            },
+            "id": "3ab5669f-9553-490d-acc1-995b1b6b430d"
+          },
+          {
+            "command": "EVENT_CAMERA_SHAKE",
+            "args": {
+              "time": 1,
+              "frames": 30,
+              "shakeDirection": "horizontal",
+              "magnitude": {
+                "type": "number",
+                "value": 5
+              }
+            },
+            "id": "fd21eec5-7485-4f11-8250-b05c6a7abed7"
+          },
+          {
+            "command": "EVENT_WAIT",
+            "args": {
+              "time": 1,
+              "frames": 30
+            },
+            "id": "49bebd6d-9891-49ee-bce6-b3cc53ad33ca"
+          },
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "Ok, we better run!\n...\nGO!"
+              ],
+              "avatarId": ""
+            },
+            "id": "0780a566-6458-44a0-8c5d-c6370f6cac7f"
+          }
+        ],
+        "false": []
+      },
+      "id": "5571ad9a-db8d-4e3f-b59d-8da766f53447"
+    }
+  ],
+  "startScript": [
+    {
+      "command": "EVENT_IF_VALUE",
+      "args": {
+        "variable": "131",
+        "operator": "==",
+        "comparator": 1,
+        "__collapseElse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_ACTOR_SET_STATE",
+            "args": {
+              "actorId": "$self$",
+              "spriteStateId": "fliped",
+              "loopAnim": true
+            },
+            "id": "0de72eb1-2ed9-4b75-a091-082625b3d77a"
+          }
+        ],
+        "false": []
+      },
+      "id": "704e33d5-b66d-47e9-a82c-f6bd2406fa54"
+    }
+  ],
+  "updateScript": [],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

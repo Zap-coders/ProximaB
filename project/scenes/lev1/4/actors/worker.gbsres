@@ -1,0 +1,156 @@
+{
+  "_resourceType": "actor",
+  "id": "95f46bd8-eec0-44be-a160-9bb55528fbd9",
+  "_index": 6,
+  "symbol": "actor_137",
+  "prefabId": "",
+  "name": "worker",
+  "x": 16,
+  "y": 26,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "3cc59b1a-50d0-479f-afff-21a24f8aa02d",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 2,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": true,
+  "collisionGroup": "",
+  "prefabScriptOverrides": {},
+  "script": [],
+  "startScript": [
+    {
+      "command": "EVENT_IF_VALUE",
+      "args": {
+        "variable": "97",
+        "operator": "==",
+        "comparator": 2,
+        "__collapseElse": true,
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_ACTOR_HIDE",
+            "args": {
+              "actorId": "$self$"
+            },
+            "id": "ae664026-0b47-446a-9f13-e489c9853292"
+          },
+          {
+            "command": "EVENT_ACTOR_COLLISIONS_DISABLE",
+            "args": {
+              "actorId": "$self$"
+            },
+            "id": "402b9ad4-d9c8-45e9-be5d-4ffb508b4948"
+          }
+        ],
+        "false": []
+      },
+      "id": "43c16fd5-ea8a-4697-bed5-18d118c2d955"
+    }
+  ],
+  "updateScript": [
+    {
+      "command": "EVENT_GROUP",
+      "args": {
+        "__label": "worker cutscene",
+        "__collapse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_IF_VALUE",
+            "args": {
+              "variable": "97",
+              "operator": "==",
+              "comparator": 1,
+              "__collapseElse": true
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "EVENT_WAIT",
+                  "args": {
+                    "time": 0.3,
+                    "frames": 30,
+                    "__collapse": false
+                  },
+                  "id": "08563d09-dc6b-4917-a2f9-97b1f6efaf36"
+                },
+                {
+                  "command": "EVENT_ACTOR_SET_STATE",
+                  "args": {
+                    "actorId": "95f46bd8-eec0-44be-a160-9bb55528fbd9",
+                    "spriteStateId": "scared",
+                    "loopAnim": true
+                  },
+                  "id": "7bebd8cc-af0d-41ed-a289-b885da23781d"
+                },
+                {
+                  "command": "EVENT_WAIT",
+                  "args": {
+                    "time": 4.8,
+                    "frames": 30,
+                    "__collapse": false
+                  },
+                  "id": "d4cfbd43-051b-4ead-b87d-49380ac4cdd7"
+                },
+                {
+                  "command": "EVENT_ACTOR_MOVE_TO",
+                  "args": {
+                    "actorId": "95f46bd8-eec0-44be-a160-9bb55528fbd9",
+                    "x": {
+                      "type": "number",
+                      "value": 16
+                    },
+                    "y": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "moveType": "vertical",
+                    "useCollisions": false,
+                    "__collapse": false
+                  },
+                  "id": "b43fea6b-687e-41aa-88d3-a764270a219f"
+                },
+                {
+                  "command": "EVENT_ACTOR_HIDE",
+                  "args": {
+                    "actorId": "95f46bd8-eec0-44be-a160-9bb55528fbd9"
+                  },
+                  "id": "10c2b8bd-4af1-4bf9-98ba-c5cacf99751b"
+                },
+                {
+                  "command": "EVENT_ACTOR_COLLISIONS_DISABLE",
+                  "args": {
+                    "actorId": "95f46bd8-eec0-44be-a160-9bb55528fbd9"
+                  },
+                  "id": "893bcf9e-bde2-45c7-8372-5afa5472758a"
+                },
+                {
+                  "command": "EVENT_SET_VALUE",
+                  "args": {
+                    "variable": "97",
+                    "value": {
+                      "type": "number",
+                      "value": 2
+                    }
+                  },
+                  "id": "38bcccb1-6433-4175-9c87-5c996c32e33b"
+                }
+              ],
+              "false": []
+            },
+            "id": "298de2b1-a36e-46dc-a8b5-51e6dd78069c"
+          }
+        ]
+      },
+      "id": "efb4c03e-1b53-454d-88b2-04014b0cd78d"
+    }
+  ],
+  "hit1Script": [],
+  "hit2Script": [],
+  "hit3Script": []
+}

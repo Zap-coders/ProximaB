@@ -1,0 +1,79 @@
+{
+  "_resourceType": "trigger",
+  "id": "c7adaa1a-4d73-4e19-9689-78166b8ab08b",
+  "_index": 2,
+  "symbol": "trigger_66",
+  "prefabId": "",
+  "name": "",
+  "x": 3,
+  "y": 0,
+  "width": 1,
+  "height": 18,
+  "prefabScriptOverrides": {},
+  "script": [
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "variable": "L5",
+        "operator": "==",
+        "comparator": 0,
+        "__collapseElse": true,
+        "condition": {
+          "type": "eq",
+          "valueA": {
+            "type": "variable",
+            "value": "L5"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_ACTOR_EMOTE",
+            "args": {
+              "actorId": "$self$",
+              "emoteId": "56423c9c-dca0-4f5b-ad92-28e9660d50f1"
+            },
+            "id": "6b9f9e30-4f28-4dde-b45c-206a546e2892"
+          },
+          {
+            "command": "EVENT_GBVM_SCRIPT",
+            "args": {
+              "script": "VM_OVERLAY_CLEAR 0, 17, 19, 17, .UI_DRAW_FRAME, .UI_COLOR_WHITE\nVM_OVERLAY_MOVE_TO      0, 18, .OVERLAY_OUT_SPEED\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_TEXT\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_WINDOW"
+            },
+            "id": "d20b83b3-1545-40d1-83ae-bf2347af5bcb"
+          },
+          {
+            "command": "EVENT_TEXT",
+            "args": {
+              "text": [
+                "Oh crap, there is \nanother one of\nthose things...",
+                "over there. It\ndoesn't look very\nhappy..."
+              ],
+              "avatarId": ""
+            },
+            "id": "b9795636-2dbc-41f5-860c-46abeefa60e4"
+          },
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "L5",
+              "value": {
+                "type": "number",
+                "value": 1
+              }
+            },
+            "id": "5f6ebd5f-db6a-4369-ae06-debdad54afd6"
+          }
+        ],
+        "false": []
+      },
+      "id": "ea249512-b6f1-454c-8c28-d9d285f0605e"
+    }
+  ],
+  "leaveScript": []
+}

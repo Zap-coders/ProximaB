@@ -1,0 +1,109 @@
+{
+  "_resourceType": "actor",
+  "id": "0adf14e0-77e9-4003-a881-7be0356ab0d5",
+  "_index": 2,
+  "symbol": "actor_5",
+  "prefabId": "",
+  "name": "dumb turret",
+  "x": 18,
+  "y": 11,
+  "frame": 0,
+  "animate": false,
+  "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+  "paletteId": "",
+  "direction": "down",
+  "moveSpeed": 1,
+  "animSpeed": 15,
+  "isPinned": false,
+  "persistent": false,
+  "collisionGroup": "1",
+  "prefabScriptOverrides": {},
+  "script": [
+    {
+      "command": "EVENT_CALL_CUSTOM_EVENT",
+      "args": {
+        "customEventId": "4a7d19ba-8298-4ccb-9f92-fa5c1b9517e2",
+        "$variable[V0]$": {
+          "type": "variable",
+          "value": "2"
+        }
+      },
+      "id": "7158bc12-1763-4dcc-85fa-69a83c36bc96"
+    }
+  ],
+  "startScript": [],
+  "updateScript": [
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "variable": "L0",
+        "operator": "==",
+        "comparator": "0",
+        "__collapseElse": true,
+        "condition": {
+          "type": "eq",
+          "valueA": {
+            "type": "variable",
+            "value": "L0"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_LAUNCH_PROJECTILE",
+            "args": {
+              "spriteSheetId": "581d34d0-9591-4e6e-a609-1d94f203b0cd",
+              "spriteStateId": "",
+              "actorId": "$self$",
+              "x": 0,
+              "y": 0,
+              "otherActorId": "player",
+              "direction": "left",
+              "angle": 0,
+              "angleVariable": "4",
+              "directionType": "direction",
+              "initialOffset": 0,
+              "speed": 2,
+              "animSpeed": 15,
+              "lifeTime": 1,
+              "loopAnim": true,
+              "destroyOnHit": true,
+              "collisionGroup": "1",
+              "collisionMask": [
+                "player"
+              ],
+              "__collapse": false
+            },
+            "id": "746f11cc-de03-4a79-a1c9-4f7a87531a7c"
+          },
+          {
+            "command": "EVENT_WAIT",
+            "args": {
+              "time": 4,
+              "frames": 30
+            },
+            "id": "530ff0d3-245b-4141-9c2d-71260fcbc71b"
+          }
+        ],
+        "false": []
+      },
+      "id": "4c237572-9aef-4a6f-adb6-e56a721c47da"
+    }
+  ],
+  "hit1Script": [
+    {
+      "command": "EVENT_CALL_CUSTOM_EVENT",
+      "args": {
+        "customEventId": "ab3df029-f6f3-49f3-b9b3-bae11bfec964"
+      },
+      "id": "ea494e27-5581-4ed6-91f0-87f4797555d9"
+    }
+  ],
+  "hit2Script": [],
+  "hit3Script": []
+}
