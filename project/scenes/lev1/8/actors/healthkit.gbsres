@@ -196,6 +196,13 @@
         "effect": 0
       },
       "id": "d4e3a11a-8d5d-448f-9716-e87048673634"
+    },
+    {
+      "command": "EVENT_ACTOR_DEACTIVATE",
+      "args": {
+        "actorId": "$self$"
+      },
+      "id": "498a5622-6a6c-40b2-a543-12a8369480df"
     }
   ],
   "startScript": [
@@ -214,7 +221,30 @@
       "id": "c71d3d2d-61fc-4f0e-adf2-43f0b10ab37d"
     }
   ],
-  "updateScript": [],
+  "updateScript": [
+    {
+      "command": "EVENT_IF_VALUE",
+      "args": {
+        "variable": "31",
+        "operator": "==",
+        "comparator": "0",
+        "__collapseElse": false
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_ACTOR_HIDE",
+            "args": {
+              "actorId": "$self$"
+            },
+            "id": "a1052db4-bff1-49ab-bdea-dcd463c933fd"
+          }
+        ],
+        "false": []
+      },
+      "id": "b0cb6d12-5bfb-439a-a720-8c68c3e18e21"
+    }
+  ],
   "hit1Script": [],
   "hit2Script": [],
   "hit3Script": []
