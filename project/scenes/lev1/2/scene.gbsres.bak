@@ -577,6 +577,21 @@
             "id": "6a6a3638-c567-4901-a9f5-a2af1970b129"
           },
           {
+            "command": "EVENT_PALETTE_SET_SPRITE",
+            "args": {
+              "palette0": "keep",
+              "palette1": "keep",
+              "palette2": "keep",
+              "palette3": "keep",
+              "palette4": "keep",
+              "palette5": "",
+              "palette6": "keep",
+              "palette7": "keep",
+              "__collapse": false
+            },
+            "id": "90fdb8c7-07f1-40ad-8546-2c0891d406a3"
+          },
+          {
             "command": "EVENT_CAMERA_MOVE_TO",
             "args": {
               "x": {
@@ -741,7 +756,8 @@
               "variable": "34",
               "operator": "==",
               "comparator": -1,
-              "__collapseElse": false
+              "__collapseElse": false,
+              "__collapse": false
             },
             "children": {
               "true": [
@@ -878,11 +894,11 @@
     {
       "command": "EVENT_IF_VALUE",
       "args": {
-        "variable": "33",
+        "variable": "32",
         "operator": "==",
         "comparator": 1,
         "__collapseElse": true,
-        "__collapse": true
+        "__collapse": false
       },
       "children": {
         "true": [
@@ -894,8 +910,8 @@
               "palette2": "keep",
               "palette3": "keep",
               "palette4": "keep",
-              "palette5": "",
-              "palette6": "keep",
+              "palette5": "a3424bd1-9c3e-4acc-83f3-c5269d257c6b",
+              "palette6": "5bc89a13-2e5b-49f8-af84-0be736d99a04",
               "palette7": "keep",
               "__collapse": false
             },
@@ -961,6 +977,93 @@
         ]
       },
       "id": "78c7a261-7427-4781-abd9-2a64380d4b6a"
+    },
+    {
+      "command": "EVENT_IF_VALUE",
+      "args": {
+        "variable": "33",
+        "operator": "==",
+        "comparator": 1,
+        "__collapseElse": true,
+        "__collapse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_PALETTE_SET_SPRITE",
+            "args": {
+              "palette0": "keep",
+              "palette1": "keep",
+              "palette2": "keep",
+              "palette3": "keep",
+              "palette4": "keep",
+              "palette5": "",
+              "palette6": "keep",
+              "palette7": "keep",
+              "__collapse": false
+            },
+            "id": "2e6d0a94-7ad6-419e-8a67-566eb35d1293"
+          }
+        ],
+        "false": [
+          {
+            "command": "EVENT_IF",
+            "args": {
+              "condition": {
+                "type": "eq",
+                "valueA": {
+                  "type": "variable",
+                  "value": "32"
+                },
+                "valueB": {
+                  "type": "number",
+                  "value": 1
+                }
+              },
+              "__collapseElse": true,
+              "__collapse": false
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "EVENT_PALETTE_SET_SPRITE",
+                  "args": {
+                    "palette0": "keep",
+                    "palette1": "keep",
+                    "palette2": "keep",
+                    "palette3": "keep",
+                    "palette4": "keep",
+                    "palette5": "a3424bd1-9c3e-4acc-83f3-c5269d257c6b",
+                    "palette6": "keep",
+                    "palette7": "keep",
+                    "__collapse": true
+                  },
+                  "id": "07d2a418-ba85-408f-b616-8cce9b316a76"
+                }
+              ],
+              "false": [
+                {
+                  "command": "EVENT_PALETTE_SET_SPRITE",
+                  "args": {
+                    "palette0": "keep",
+                    "palette1": "keep",
+                    "palette2": "keep",
+                    "palette3": "keep",
+                    "palette4": "keep",
+                    "palette5": "8c2d6b94-a29c-469b-8dea-0c3e5c825407",
+                    "palette6": "keep",
+                    "palette7": "keep",
+                    "__collapse": true
+                  },
+                  "id": "30c872b8-dbf4-47a9-9139-cf3c0f4c88e4"
+                }
+              ]
+            },
+            "id": "504b2ddc-c3d3-4073-9166-9c0122f8d6b8"
+          }
+        ]
+      },
+      "id": "5fd3724b-38a1-428a-93b6-ee4aed36d94e"
     },
     {
       "command": "EVENT_COMMENT",
@@ -1150,121 +1253,12 @@
       "id": "ce303b15-04ba-4ad6-8ee9-482e34124979"
     },
     {
-      "command": "EVENT_SET_INPUT_SCRIPT",
-      "args": {
-        "input": [
-          "start"
-        ],
-        "override": true,
-        "__scriptTabs": "press",
-        "__collapse": true
-      },
-      "children": {
-        "true": [
-          {
-            "command": "EVENT_COMMENT",
-            "args": {
-              "text": "save the information about the room to memory."
-            },
-            "id": "625ebc75-4fbc-452b-8c71-274cf2c09535"
-          },
-          {
-            "command": "EVENT_SCENE_PUSH_STATE",
-            "args": {},
-            "id": "d9f0cf68-427c-4734-bc10-1a2c9605316e"
-          },
-          {
-            "command": "EVENT_COMMENT",
-            "args": {
-              "text": "go to the menu\n",
-              "__collapse": true
-            },
-            "id": "cea5e430-4236-4acb-ae50-0ef1def46d77"
-          },
-          {
-            "command": "EVENT_SWITCH_SCENE",
-            "args": {
-              "sceneId": "0c7ed17f-f9b8-478a-9fb8-59cb45273bfc",
-              "x": {
-                "type": "number",
-                "value": 0
-              },
-              "y": {
-                "type": "number",
-                "value": 0
-              },
-              "direction": "",
-              "fadeSpeed": 1
-            },
-            "id": "75653c23-26f2-48f9-893e-689532bb559f"
-          }
-        ]
-      },
-      "id": "baa381f7-ef24-4296-8416-84c6e4853e63"
-    },
-    {
       "command": "EVENT_COMMENT",
       "args": {
         "text": "make B button activate a weapon when pressed",
         "__collapse": true
       },
       "id": "b3af07c5-3572-4d50-9331-3fe9e00597c3"
-    },
-    {
-      "command": "EVENT_SET_INPUT_SCRIPT",
-      "args": {
-        "input": [
-          "b"
-        ],
-        "override": false,
-        "__scriptTabs": "press",
-        "__collapse": true
-      },
-      "children": {
-        "true": [
-          {
-            "command": "EVENT_COMMENT",
-            "args": {
-              "text": "checks to see if you can use the blaster",
-              "__collapse": true
-            },
-            "id": "51c91cb2-eed2-418b-a89a-8a0b5e088b80"
-          },
-          {
-            "command": "EVENT_IF",
-            "args": {
-              "variable": "19",
-              "__collapseElse": true,
-              "condition": {
-                "type": "variable",
-                "value": "19"
-              }
-            },
-            "children": {
-              "true": [
-                {
-                  "command": "EVENT_CALL_CUSTOM_EVENT",
-                  "args": {
-                    "customEventId": "0537ccc0-8bb6-418f-93e4-9f968e0b78e3",
-                    "$variable[V0]$": {
-                      "type": "variable",
-                      "value": "20"
-                    },
-                    "$variable[V1]$": {
-                      "type": "variable",
-                      "value": "26"
-                    }
-                  },
-                  "id": "3212c4b1-732b-4f77-a9d0-aba1783680ba"
-                }
-              ],
-              "false": []
-            },
-            "id": "05a87135-af67-45dd-adb6-87c7ddd135ea"
-          }
-        ]
-      },
-      "id": "f1ed5bbd-41b4-4039-be0f-2118ec0d1caa"
     },
     {
       "command": "EVENT_COMMENT",
@@ -1275,38 +1269,11 @@
       "id": "4760e6b8-dc79-40ae-b913-845397287c7f"
     },
     {
-      "command": "EVENT_SET_INPUT_SCRIPT",
+      "command": "EVENT_CALL_CUSTOM_EVENT",
       "args": {
-        "input": [
-          "a"
-        ],
-        "override": false,
-        "__scriptTabs": "press",
-        "__collapse": true
+        "customEventId": "0b3f4f00-a02b-4084-9827-e20908a9c3f8"
       },
-      "children": {
-        "true": [
-          {
-            "command": "EVENT_COMMENT",
-            "args": {
-              "text": "calls the sword script"
-            },
-            "id": "b725a22b-460d-469b-bb16-a3ff3cf24601"
-          },
-          {
-            "command": "EVENT_CALL_CUSTOM_EVENT",
-            "args": {
-              "customEventId": "80ba8cdc-e9ed-42c2-9eb9-423c9cb0d806",
-              "$variable[V0]$": {
-                "type": "variable",
-                "value": "20"
-              }
-            },
-            "id": "2f43d9cc-ef58-4fee-b278-371886406a43"
-          }
-        ]
-      },
-      "id": "4ad647b6-c5c2-4993-873b-75f617679564"
+      "id": "305c0f27-214a-44ac-9067-4d26c7394fbe"
     },
     {
       "command": "EVENT_COMMENT",

@@ -1,0 +1,119 @@
+{
+  "_resourceType": "script",
+  "id": "6c38beaf-5a23-4850-bf6c-836c4a80038e",
+  "name": "auto save",
+  "symbol": "script_8",
+  "description": "",
+  "variables": {},
+  "actors": {},
+  "script": [
+    {
+      "command": "EVENT_IF",
+      "args": {
+        "condition": {
+          "type": "eq",
+          "valueA": {
+            "type": "variable",
+            "value": "113"
+          },
+          "valueB": {
+            "type": "number",
+            "value": 1
+          }
+        },
+        "__collapseElse": true,
+        "__collapse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_SAVE_DATA",
+            "args": {
+              "saveSlot": 0,
+              "__scriptTabs": "save"
+            },
+            "children": {
+              "true": [],
+              "load": []
+            },
+            "id": "8bddea3c-2217-4888-9b16-980783d551cc"
+          }
+        ],
+        "false": [
+          {
+            "command": "EVENT_IF",
+            "args": {
+              "condition": {
+                "type": "eq",
+                "valueA": {
+                  "type": "variable",
+                  "value": "113"
+                },
+                "valueB": {
+                  "type": "number",
+                  "value": 2
+                }
+              },
+              "__collapseElse": true,
+              "__collapse": false
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "EVENT_SAVE_DATA",
+                  "args": {
+                    "saveSlot": 1,
+                    "__scriptTabs": "save"
+                  },
+                  "children": {
+                    "true": [],
+                    "load": []
+                  },
+                  "id": "f2bb8c99-a6eb-4863-bb84-327e24c5b37b"
+                }
+              ],
+              "false": [
+                {
+                  "command": "EVENT_GBVM_SCRIPT",
+                  "args": {
+                    "script": "VM_OVERLAY_CLEAR 0, 17, 19, 17, .UI_DRAW_FRAME, .UI_COLOR_WHITE\nVM_OVERLAY_MOVE_TO      0, 18, .OVERLAY_OUT_SPEED\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_TEXT\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_WINDOW"
+                  },
+                  "id": "55836f9f-1b6c-45ea-b1cc-78cdcb9548c5"
+                },
+                {
+                  "command": "EVENT_TEXT",
+                  "args": {
+                    "text": [
+                      "Error Please \nreport this code \nto developers: 105"
+                    ],
+                    "avatarId": ""
+                  },
+                  "id": "65f18843-7304-47f8-ae43-060dc24e7224"
+                },
+                {
+                  "command": "EVENT_SWITCH_SCENE",
+                  "args": {
+                    "sceneId": "6641e6ab-a5d2-4261-9262-3b649bc0b3ad",
+                    "x": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "y": {
+                      "type": "number",
+                      "value": 0
+                    },
+                    "direction": "",
+                    "fadeSpeed": "2"
+                  },
+                  "id": "9c8874e5-69a5-4498-a988-ecd26420b2d2"
+                }
+              ]
+            },
+            "id": "ffa822b0-63fa-4489-b4ad-01ff2c5fe7de"
+          }
+        ]
+      },
+      "id": "1db04b02-4a27-451c-ac9b-dc0ef5c19dbb"
+    }
+  ]
+}
