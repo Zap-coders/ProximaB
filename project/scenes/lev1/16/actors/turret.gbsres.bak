@@ -55,6 +55,17 @@
           {
             "command": "EVENT_SET_VALUE",
             "args": {
+              "variable": "L1",
+              "value": {
+                "type": "number",
+                "value": 3
+              }
+            },
+            "id": "03f0b942-f5ae-46a4-a2bc-b5745249a02d"
+          },
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
               "variable": "L0",
               "value": {
                 "type": "number",
@@ -127,13 +138,121 @@
       "id": "2f0c69f6-7901-4e72-abb6-4420fce172e6"
     },
     {
+      "command": "EVENT_IF_ACTOR_RELATIVE_TO_ACTOR",
+      "args": {
+        "actorId": "player",
+        "operation": "up",
+        "otherActorId": "$self$",
+        "__collapseElse": false,
+        "__collapse": true
+      },
+      "children": {
+        "true": [
+          {
+            "command": "EVENT_ACTOR_SET_DIRECTION",
+            "args": {
+              "actorId": "$self$",
+              "direction": {
+                "type": "direction",
+                "value": "up"
+              }
+            },
+            "id": "4b0280d6-e8e4-4a5e-bbcf-444d40e10f6d"
+          }
+        ],
+        "false": [
+          {
+            "command": "EVENT_IF_ACTOR_RELATIVE_TO_ACTOR",
+            "args": {
+              "actorId": "player",
+              "operation": "down",
+              "otherActorId": "$self$",
+              "__collapseElse": false
+            },
+            "children": {
+              "true": [
+                {
+                  "command": "EVENT_ACTOR_SET_DIRECTION",
+                  "args": {
+                    "actorId": "$self$",
+                    "direction": {
+                      "type": "direction",
+                      "value": "down"
+                    }
+                  },
+                  "id": "a7e6b180-3073-4a4c-bc0f-8ad79538dd70"
+                }
+              ],
+              "false": [
+                {
+                  "command": "EVENT_IF_ACTOR_RELATIVE_TO_ACTOR",
+                  "args": {
+                    "actorId": "player",
+                    "operation": "left",
+                    "otherActorId": "$self$",
+                    "__collapseElse": false
+                  },
+                  "children": {
+                    "true": [
+                      {
+                        "command": "EVENT_ACTOR_SET_DIRECTION",
+                        "args": {
+                          "actorId": "$self$",
+                          "direction": {
+                            "type": "direction",
+                            "value": "left"
+                          }
+                        },
+                        "id": "90e91726-5aee-41c7-9e1a-a952af92c253"
+                      }
+                    ],
+                    "false": [
+                      {
+                        "command": "EVENT_IF_ACTOR_RELATIVE_TO_ACTOR",
+                        "args": {
+                          "actorId": "player",
+                          "operation": "right",
+                          "otherActorId": "$self$",
+                          "__collapseElse": true
+                        },
+                        "children": {
+                          "true": [
+                            {
+                              "command": "EVENT_ACTOR_SET_DIRECTION",
+                              "args": {
+                                "actorId": "$self$",
+                                "direction": {
+                                  "type": "direction",
+                                  "value": "right"
+                                }
+                              },
+                              "id": "fe6e4406-f9b3-4384-931b-f51e3a33a43b"
+                            }
+                          ],
+                          "false": []
+                        },
+                        "id": "4f353826-fc19-41d1-98f0-e5342fb3476d"
+                      }
+                    ]
+                  },
+                  "id": "853ceb88-16fc-4cc4-ae4d-15201e9d3725"
+                }
+              ]
+            },
+            "id": "75bba5e4-c653-4360-81bc-6a21e6f2ace6"
+          }
+        ]
+      },
+      "id": "7ff80241-cc56-45f0-b6ad-82cc91da260c"
+    },
+    {
       "command": "EVENT_LAUNCH_PROJECTILE",
       "args": {
         "spriteSheetId": "34e4d67f-b596-4a22-bbe6-343671da0727",
         "spriteStateId": "",
         "actorId": "$self$",
-        "x": 0,
-        "y": 3,
+        "x": -12,
+        "y": 4,
         "directionType": "target",
         "otherActorId": "$self$",
         "direction": "right",
@@ -149,7 +268,8 @@
         "collisionGroup": "3",
         "collisionMask": [
           "player"
-        ]
+        ],
+        "__section": "source"
       },
       "id": "a80e755a-157c-4715-8bc9-5ce08df40734"
     }
@@ -158,7 +278,7 @@
     {
       "command": "EVENT_DEC_VALUE",
       "args": {
-        "variable": "48"
+        "variable": "L1"
       },
       "id": "2d5b7ea9-38dd-4320-b5dd-08ec40c677d6"
     },
@@ -196,7 +316,7 @@
           "type": "eq",
           "valueA": {
             "type": "variable",
-            "value": "48"
+            "value": "L1"
           },
           "valueB": {
             "type": "number",
@@ -206,6 +326,17 @@
       },
       "children": {
         "true": [
+          {
+            "command": "EVENT_SET_VALUE",
+            "args": {
+              "variable": "48",
+              "value": {
+                "type": "number",
+                "value": 0
+              }
+            },
+            "id": "ef35c878-8e08-464c-8fd4-fb9fc6f5832f"
+          },
           {
             "command": "EVENT_ACTOR_HIDE",
             "args": {
@@ -226,6 +357,13 @@
               "actorId": "$self$"
             },
             "id": "6bf1d7e4-692d-4df1-b531-e9b84ece3d9f"
+          },
+          {
+            "command": "EVENT_ACTOR_DEACTIVATE",
+            "args": {
+              "actorId": "$self$"
+            },
+            "id": "33b03015-ad8b-41e8-9377-0bac6743ddd4"
           }
         ],
         "false": []
