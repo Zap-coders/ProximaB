@@ -1,7 +1,7 @@
 {
   "_resourceType": "scene",
   "id": "0b34570f-0a12-464c-a8f6-7bacbbf2c001",
-  "_index": 46,
+  "_index": 45,
   "type": "TOPDOWN",
   "name": "home\\crashsite",
   "symbol": "scene_59",
@@ -20,7 +20,16 @@
     "",
     "344e064f-ba67-4323-8868-a3c9f6ff2f3a"
   ],
-  "spritePaletteIds": [],
+  "spritePaletteIds": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    "c3dabd7d-e1a5-41d8-a668-c04f868bb493",
+    null,
+    "797d7725-a803-4c50-9e82-1ab132e42505"
+  ],
   "autoFadeSpeed": 1,
   "script": [
     {
@@ -102,6 +111,13 @@
         "false": []
       },
       "id": "78467ca7-dfa2-415b-a3a3-d6959753a3cf"
+    },
+    {
+      "command": "EVENT_ACTOR_HIDE",
+      "args": {
+        "actorId": "dd57bc27-ee0c-40e5-9647-9a28e7b87cf8"
+      },
+      "id": "7139c845-74f2-45cf-bf1d-f0ac7074e07e"
     },
     {
       "command": "EVENT_IF",
@@ -685,21 +701,67 @@
       "id": "f0c09565-ec3f-4bf2-b4ff-4fa2c3586d4d"
     },
     {
-      "command": "EVENT_GBVM_SCRIPT",
+      "command": "EVENT_CALL_CUSTOM_EVENT",
       "args": {
-        "script": "VM_OVERLAY_CLEAR 0, 17, 19, 17, .UI_DRAW_FRAME, .UI_COLOR_WHITE\nVM_OVERLAY_MOVE_TO      0, 18, .OVERLAY_OUT_SPEED\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_TEXT\nVM_OVERLAY_WAIT .UI_MODAL, .UI_WAIT_WINDOW",
-        "__collapse": true
+        "customEventId": "7c3c6ed7-02db-456e-9ff7-2ec4a5c4e985"
       },
-      "id": "f69c8092-65b8-48ec-acbf-5d83bb4b63ad"
+      "id": "a61b4278-e8c9-4a7b-9403-246b11b970b4"
+    },
+    {
+      "command": "EVENT_ACTOR_MOVE_TO",
+      "args": {
+        "actorId": "$self$",
+        "x": {
+          "type": "number",
+          "value": 17
+        },
+        "y": {
+          "type": "number",
+          "value": 11
+        },
+        "moveType": "horizontal",
+        "useCollisions": false
+      },
+      "id": "3cf8028c-a43f-4147-9f83-287da2029bfe"
+    },
+    {
+      "command": "EVENT_WAIT",
+      "args": {
+        "time": 0.5,
+        "frames": 30
+      },
+      "id": "3b303e34-1b5e-4dc0-b44b-8cc2ff2abb36"
+    },
+    {
+      "command": "EVENT_ACTOR_SHOW",
+      "args": {
+        "actorId": "dd57bc27-ee0c-40e5-9647-9a28e7b87cf8"
+      },
+      "id": "762a1feb-0e46-4feb-a1f7-ee3a4c0a906a"
+    },
+    {
+      "command": "EVENT_ACTOR_MOVE_TO",
+      "args": {
+        "actorId": "dd57bc27-ee0c-40e5-9647-9a28e7b87cf8",
+        "x": {
+          "type": "number",
+          "value": 17
+        },
+        "y": {
+          "type": "number",
+          "value": 9
+        },
+        "moveType": "horizontal",
+        "useCollisions": false
+      },
+      "id": "5dfccac0-2bec-4bb2-9694-beda8b377426"
     },
     {
       "command": "EVENT_TEXT",
       "args": {
         "__presetId": "b77064a4-78ab-4c09-8fd3-708cdaafb8f7",
         "text": [
-          "The player meets\njeff and gains the\nplasma sword.",
-          "The player learns\nthat if they need \nto exit a level...",
-          "They can use the\nin their menu\ninterface to leave"
+          "Oh finally!\nlets go inside."
         ],
         "__section": "text",
         "avatarId": "",
@@ -718,7 +780,32 @@
         "closeDelayTime": 0.5,
         "closeDelayFrames": 30
       },
-      "id": "2b1ed111-9b86-4b80-a35d-894d98c85fb4"
+      "id": "ba435a96-e139-42da-8145-f384dc3f2010"
+    },
+    {
+      "command": "EVENT_WAIT",
+      "args": {
+        "time": 0.5,
+        "frames": 30
+      },
+      "id": "d2efdc8e-1f8c-4ad1-b6ff-b6ed3f1fa224"
+    },
+    {
+      "command": "EVENT_ACTOR_MOVE_TO",
+      "args": {
+        "actorId": "dd57bc27-ee0c-40e5-9647-9a28e7b87cf8",
+        "x": {
+          "type": "number",
+          "value": 3
+        },
+        "y": {
+          "type": "number",
+          "value": 6
+        },
+        "moveType": "diagonal",
+        "useCollisions": false
+      },
+      "id": "6f30bf24-a0a0-4dcb-9071-30f46f14ad09"
     },
     {
       "command": "EVENT_SET_VALUE",
@@ -732,23 +819,6 @@
       "id": "3922165b-8cbd-416f-8a6d-261f078c7f3e"
     },
     {
-      "command": "EVENT_SWITCH_SCENE",
-      "args": {
-        "sceneId": "d5d4f002-6f02-400d-b182-3699c0ca0198",
-        "x": {
-          "type": "number",
-          "value": 3
-        },
-        "y": {
-          "type": "number",
-          "value": 11
-        },
-        "direction": "",
-        "fadeSpeed": "2"
-      },
-      "id": "a22383a0-31ae-4f65-b938-3f4ae6f53e9b"
-    },
-    {
       "command": "EVENT_ACTOR_SET_MOVEMENT_SPEED",
       "args": {
         "actorId": "$self$",
@@ -756,16 +826,6 @@
         "__collapse": true
       },
       "id": "b11f3c95-378c-4eb1-94dc-7bf9a2796095"
-    },
-    {
-      "command": "EVENT_SET_VALUE",
-      "args": {
-        "variable": "19",
-        "value": {
-          "type": "true"
-        }
-      },
-      "id": "1803641a-531f-4994-a20f-2a1fb66efea2"
     },
     {
       "command": "EVENT_CALL_CUSTOM_EVENT",
